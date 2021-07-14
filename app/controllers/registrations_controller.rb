@@ -29,8 +29,9 @@ class RegistrationsController < Devise::RegistrationsController
       if ForemInstance.smtp_enabled?
         # redirect_to confirm_email_path(email: resource.email)
       else
-        redirect_to root_path
+        sign_in(resource)
       end
+      redirect_to root_path
     else
       render action: "by_email"
     end
