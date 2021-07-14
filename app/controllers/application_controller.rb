@@ -127,6 +127,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def after_sign_up_path_for(_resource)
+    rooms_path
+  end
+
   def after_accept_path_for(_resource)
     onboarding_path
   end
