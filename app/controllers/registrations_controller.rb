@@ -27,7 +27,7 @@ class RegistrationsController < Devise::RegistrationsController
       update_first_user_permissions(resource)
 
       if ForemInstance.smtp_enabled?
-        redirect_to confirm_email_path(email: resource.email)
+        # redirect_to confirm_email_path(email: resource.email)
       else
         sign_in(resource)
         redirect_to root_path
