@@ -19,11 +19,13 @@
       </button>
     </div>
 
-    <div class="crayons-header--search js-search-form" id="header-search">
-      <form accept-charset="UTF-8" method="get" action="<%= search_path %>">
-        <input class="crayons-header--search-input crayons-textfield js-search-input" type="text" id="nav-search" name="q" placeholder="Search..." autocomplete="off" />
-      </form>
-    </div>
+    <% if user_signed_in? %>
+      <div class="crayons-header--search js-search-form" id="header-search">
+        <form accept-charset="UTF-8" method="get" action="<%= search_path %>">
+          <input class="crayons-header--search-input crayons-textfield js-search-input" type="text" id="nav-search" name="q" placeholder="Search..." autocomplete="off" />
+        </form>
+      </div>
+    <% end %>
 
     <div class="flex items-center h-100 ml-auto">
       <a class="crayons-header__link crayons-btn crayons-btn--ghost crayons-btn--icon-rounded m:hidden <% unless user_signed_in? %>mx-2<% end %>" id="search-link" aria-label="Search" href="<%= search_path %>">
